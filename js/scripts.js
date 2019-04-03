@@ -49,18 +49,21 @@ function indexNumberOfFirstVowel(string) {
     }
   }
 }
-console.log(indexNumberOfFirstVowel("schizm"));
+console.log(indexNumberOfFirstVowel("claggon"));
 
-function firstCharConsonant(string) {
-  if (isVowel(string.charAt(0)) === false) {
-    var firstChar = string.charAt(0);
-    var newString = string.slice(1);
-    newString = newString + firstChar + "ay";
-  } else {
+function sequentialConsonentTransformer(string) {
+  var vowelLocation = indexNumberOfFirstVowel(string);
+  alert("one");
+  var firstHalfString = string.slice(0,vowelLocation);
+  alert("two");
+  var secondHalfString = string.slice(vowelLocation);
+  alert("three");
+  var finalString = firstHalfString + secondHalfString + "ay";
+  return finalString;
+  alert("four");
   }
-  return newString;
-}
-console.log(firstCharConsonant("top"));
+console.log(sequentialConsonentTransformer("claggon"));
+
 
 // function firstCharConsonant(string) {
 //   if (isVowel(string.charAt(0)) === false) {
