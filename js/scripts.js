@@ -9,7 +9,7 @@ var isNumber = function(userInputArray){
 }
 
 function isVowel (character) {
-  if (character === 'a' || character === 'e' || character === 'i' || character === 'o' || character === 'u') {
+  if (character === 'a' || character === 'e' || character === 'i' || character === 'o' || character === 'u' || character === 'y') {
   return true;
   } else {
   return false;
@@ -18,18 +18,32 @@ function isVowel (character) {
 
 console.log(isVowel("o"));
 
-function replaceVowelsWithDash(character) {
-  var finalString = '';
-  for (var i = 0; i <= character.length - 1; i++) {
-    if (isVowel(character.charAt(i))) {
-      finalString += "-";
-    } else {
-      finalString += character.charAt(i);
-    }
+function firstCharVowelAddAy(string) {
+  if (string.charAt(0) === "y") {
+    var firstChar = string.charAt(0);
+    var newString = string.slice(1);
+    newString = newString + firstChar + "ay";
+
+  } else if (isVowel(string.charAt(0))) {
+    var newString = string.concat("ay");
+
+  } else {
   }
-	return finalString;
+  return newString;
 }
-console.log(replaceVowelsWithDash("o"));
+console.log(firstCharVowelAddAy("open"));
+
+function firstCharConsonant(string) {
+  if (isVowel(string.charAt(0)) === false) {
+    var firstChar = string.charAt(0);
+    var newString = string.slice(1);
+    newString = newString + firstChar + "ay";
+  } else {
+  }
+  return newString;
+}
+console.log(firstCharConsonant("top"));
+
 
 //User Interface Logic
 $(document).ready(function(){
@@ -44,7 +58,7 @@ $(document).ready(function(){
     userInputArray.push(userInputSplitString);
     console.log(userInputArray);
 
-    var result = replaceVowelsWithDash(userInputArray);
+    var result = firstCharVowelAddAy(userInputArray);
 
     // var result = translator(userInputArray);
     $("#answerArea").show();
