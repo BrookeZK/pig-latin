@@ -1,7 +1,12 @@
 // Business Logic
-  var translator = function(userInput){
+
+var vowels = ["a", "e", "i", "o", "u", "y"]
+
+var translator = function(userInput){
+  if (typeof userInput === "number") {
     return false
   }
+}
 
 //User Interface Logic
 $(document).ready(function(){
